@@ -27,8 +27,10 @@ class Solution {
 
     // MAIN method
     public void rotate(int[] nums, int k) {
+        if (nums == null || nums.length == 0) return;
         // rotateBruteForce(nums, k);   // Approach 1
-        rotateReverse(nums, k);        // Approach 2 (Optimal)
+        // rotateReverse(nums, k);        // Approach 2 (Optimal)
+        rotateReverse2(nums, k);       // Approach 2 (Optimal)
     }
 
     // ---------------------------------------------
@@ -51,7 +53,7 @@ class Solution {
     }
 
     // ---------------------------------------------
-    // Approach 2: Reverse Array (YOUR SAME LOOPS)
+    // Approach 2: Reverse Array
     // Time: O(n)
     // Space: O(1)
     public void rotateReverse(int[] nums, int k) {
@@ -78,5 +80,28 @@ class Solution {
             nums[i] = nums[j];
             nums[j] = temp;
         }
+    }   
+    
+    public static void rotateReverse2(int[] nums, int k) {
+        int n = nums.length - 1;
+        k = k % nums.length;
+        // ---------------------------------------------
+        // Approach 2: Reverse Array (Optimal)
+        // Time: O(n)
+        // Space: O(1)
+        reverse(nums, 0, n);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, n);
+
     }
+
+
+    public static void reverse(int arr[], int strt, int end){
+        for(int i = strt, j = end; i < j; i++, j--){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+    }
+
 }
