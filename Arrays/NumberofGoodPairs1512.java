@@ -34,7 +34,21 @@ class Solution {
         //     }
         // }
 
-        
+        // ---------------------------------------------
+        // Approach 2: Optimized solution
+        // Time: O(n)
+        // Space: O(1)
+
+        int[] freq = new int[101];
+        for(int i = 0; i < nums.length; i++){
+            freq[nums[i]]++;
+        }
+        for(int i = 0; i < freq.length; i++){
+            if(freq[i] > 1){
+                // If a number appears n times, it forms n*(n-1)/2 good pairs
+                count += freq[i] * (freq[i] - 1) / 2;
+            }
+        }
         return count;
     }
 }
