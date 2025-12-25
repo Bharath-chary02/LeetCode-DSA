@@ -37,6 +37,29 @@ class Solution {
         // }
         // return nums[i];
 
+        // ---------------------------------------------
+        // Approach 2: Sorting
+        // Time: O(n logn)
+        // Space: O(1)
+
+        // Arrays.sort(nums);
+        // int count = 0;
+        // int a = nums[0];
+        // for(int i = 0; i < n; i++){
+        //     if(nums[i] == a){
+        //         count++;
+        //         if(count > n / 2){
+        //             return nums[i];
+        //         }
+        //     }
+            
+        //     if(nums[i] != a){
+        //         count = 1;
+        //         a = nums[i];
+        //     }
+        // }
+        // return a;
+
         
     }
 }
