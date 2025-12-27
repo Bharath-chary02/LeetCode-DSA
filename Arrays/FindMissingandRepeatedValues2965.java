@@ -1,9 +1,11 @@
+import java.util.Arrays;
+
 public class FindMissingandRepeatedValues2965 {
     public static void main(String[] args) {
         int[][] grid = {{1, 3}, {2, 2}};
 
         Solution sol = new Solution();
-        System.out.println(sol.findMissingAndRepeatedValues(grid));
+        System.out.println(Arrays.toString(sol.findMissingAndRepeatedValues(grid)));
     }
 }
 
@@ -26,7 +28,7 @@ class Solution {
             }
         }
 
-        for(int i = 0; i <= n * n; i++){
+        for(int i = 1; i <= n * n; i++){
             if(freq[i] == 2){
                 res[0] = i;
             }
