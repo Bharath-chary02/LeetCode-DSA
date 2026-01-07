@@ -42,6 +42,20 @@ class Solution {
             // Space Complexity: O(1)
 
             // Arrays.sort(nums);
+
+
+            // ---------------------------------------------
+            // Approach 2: Optimal (Reverse Suffix)
+            // Time Complexity: O(n)
+            // Space Complexity: O(1)
+            int i = 0, j = n - 1;
+            while(i <= j) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
+                i++;
+                j--;
+            }
             return;
         }
 
