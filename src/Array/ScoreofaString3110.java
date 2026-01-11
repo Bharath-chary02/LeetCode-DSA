@@ -1,3 +1,4 @@
+package Array;
 public class ScoreofaString3110 {
     public static void main(String[] args) {
         String s = "hello";

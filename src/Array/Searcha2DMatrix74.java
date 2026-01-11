@@ -1,3 +1,4 @@
+package Array;
 public class Searcha2DMatrix74 {
     public static void main(String[] args) {
         Solution sol = new Solution();

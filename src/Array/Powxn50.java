@@ -1,3 +1,4 @@
+package Array;
 public class Powxn50 {
     public static void main(String[] args) {
         double x = 2.0;

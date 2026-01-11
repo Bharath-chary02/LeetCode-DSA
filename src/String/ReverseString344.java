@@ -1,5 +1,4 @@
-package Strings;
-
+package String;
 import java.util.Arrays;
 
 public class ReverseString344 {
