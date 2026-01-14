@@ -43,6 +43,41 @@ class Solution {
 
         // return res;
 
+    // ---------------------------------------------
+    // Approach 2: Using Division (Handles zeros)
+    // Time: O(n)
+    // Space: O(1) extra (excluding output array)
+
+        // int n = nums.length;
+        // int[] ans = new int[n];
+        // int mul = 1;
+        // int c = 0;
+        // for(int i = 0; i < n; i++) {
+        //     if(nums[i] != 0) {
+        //         mul *= nums[i];
+        //     } else {
+        //         c++;
+        //     }
+        // }
+
+        // for(int i = 0; i < n; i++) {
+        //     if(nums[i] != 0) {
+        //         if(c == 0) {
+        //             ans[i] = mul / nums[i];
+        //         } else {
+        //             ans[i] = 0;
+        //         }
+        //     } else {
+        //         if(c == 1) {
+        //             ans[i] = mul;
+        //         } else {
+        //             ans[i] = 0;
+        //         }
+        //     }
+        // }
+        
+        // return ans;
+
     
     }
 }
