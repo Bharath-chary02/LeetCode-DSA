@@ -39,6 +39,31 @@ class Solution {
         // }
         // return c;
 
+        // ---------------------------------------------
+        // Approach 2: Prefix Sum + Brute Force
+        // Time: O(n^2)
+        // Space: O(n)
+
+        // int n = nums.length;
+        // int[] prefix = new int[n];
+        // int c = 0;
+        // prefix[0] = nums[0];
+        // for(int i = 1; i < n; i++) {
+        //     prefix[i] = prefix[i - 1] + nums[i];
+        // }
+
+        // for(int i = 0; i < n; i++) {
+        //     int cs = 0;
+        //     for(int j = i; j < n; j++) {
+        //         cs = i == 0 ? prefix[j] : prefix[j] - prefix[i - 1];
+        //         if(cs == k) {
+        //             c++;
+        //         }
+        //     }
+            
+        // }
+        // return c;
+
         
     }
 }
