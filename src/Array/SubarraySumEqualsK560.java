@@ -64,6 +64,29 @@ class Solution {
         // }
         // return c;
 
-        
+        // ---------------------------------------------
+        // Approach 3: Prefix Sum + HashMap (Optimal)
+        // Time: O(n)
+        // Space: O(n)
+
+        int n = nums.length;
+        int prefixSum = 0;
+        int c = 0;
+
+        HashMap<Integer, Integer> hm = new HashMap<>();
+        hm.put(0, 1); // important: prefixSum 0 seen once (empty subarray)
+
+        for(int i = 0; i < n; i++) {
+            prefixSum += nums[i];
+
+            int needed = prefixSum - k;
+            if(hm.containsKey(needed)) {
+                c += hm.get(needed);
+            }
+
+            hm.put(prefixSum, hm.getOrDefault(prefixSum, 0) + 1);
+        }
+
+        return c;
     }
 }
