@@ -36,6 +36,26 @@ class Solution {
 
         // return res;
 
+        // ---------------------------------------------
+        // Approach 2: Frequency Array
+        // Time: O(n)
+        // Space: O(n)
+
+        // int n = nums.length;
+        // int[] freq = new int[n];
+        // int res = 0;
+        // for(int i = 0; i < n; i++) {
+        //     freq[nums[i] - 1]++;
+        // }
+        // for(int i = 0; i < n; i++) {
+        //     if(freq[i] >= 2) {
+        //         res = i + 1;
+        //         break;
+        //     }
+        // }
+
+        // return res;
+
         
     }
 }
