@@ -67,6 +67,32 @@ class Solution {
 
         // return ans;
 
-        
+        // -------------------------------------------------------
+        // Approach 3: Two Pointers (Optimal)
+        // Time: O(n)
+        // Space: O(1)
+
+        int n = height.length;
+        int ans = 0;
+
+        int lowMax = height[0];
+        int rightMax = height[n - 1];
+
+        int low = 1;
+        int high = n - 2;
+        while(low <= high) {
+            lowMax = Math.max(lowMax, height[low]);
+            rightMax = Math.max(rightMax, height[high]);
+            
+            if(lowMax > rightMax) {
+                ans += rightMax - height[high];
+                high--;
+            } else {
+                ans += lowMax - height[low];
+                low++;
+            }
+        }
+
+        return ans;
     }
 }
