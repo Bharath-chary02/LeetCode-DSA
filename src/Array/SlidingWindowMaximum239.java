@@ -52,6 +52,40 @@ class Solution {
 
         // return res;
 
-    
+    // ---------------------------------------------
+    // Approach 2: Monotonic Deque (Optimal)
+    // Time: O(n)
+    // Space: O(k)
+
+        int n = nums.length;
+        Deque<Integer> dq = new ArrayDeque<>();
+        int[] res = new int[n - k + 1];
+
+        for(int i = 0; i < k; i++) {
+            while(dq.size() > 0 && nums[i] > nums[dq.peekLast()]) {
+                dq.removeLast();
+            }
+            dq.addLast(i);
+        }
+
+        int j = 0;
+
+        for(int i = k; i < n; i++) {
+            res[j++] = nums[dq.peekFirst()];
+
+            while(dq.size() > 0 && dq.peekFirst() < i - k + 1) {
+                dq.removeFirst();
+            }
+
+            while(dq.size() > 0 && nums[i] > nums[dq.peekLast()]) {
+                dq.removeLast();
+            }
+
+            dq.addLast(i);
+        }
+
+        res[res.length - 1] = nums[dq.peekFirst()];
+
+        return res;
     }
 }
