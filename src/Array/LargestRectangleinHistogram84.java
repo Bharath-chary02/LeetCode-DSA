@@ -68,6 +68,48 @@ class Solution {
 
         // return max;
 
-    
+    // ---------------------------------------------
+    // Approach 2: Single Pass Stack (Optimized)
+    // Time: O(n)
+    // Space: O(n)
+
+        int n = heights.length;
+        int max = 0;
+        Stack<Integer> st = new Stack<>();
+
+        for(int i = 0; i < n; i++) {
+            while(!st.isEmpty() && heights[i] < heights[st.peek()]) {
+                int topIndx = st.pop();
+                int ht = heights[topIndx];
+                int width = 0;
+
+                if(st.isEmpty()) {
+                    width = i;
+                } else {
+                    width = i - st.peek() - 1;
+                }
+
+                int currArea = ht * width;
+                max = Math.max(currArea, max);
+            }
+            st.push(i);
+        }
+
+        while(!st.isEmpty()) {
+            int topIndx = st.pop();
+            int ht = heights[topIndx];
+            int width = 0;
+
+            if(st.isEmpty()) {
+                width = n;
+            } else {
+                width = n - st.peek() - 1;
+            }
+
+            int currArea = ht * width;
+            max = Math.max(currArea, max);
+        }
+
+        return max;
     }
 }
