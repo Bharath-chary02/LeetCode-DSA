@@ -9,11 +9,14 @@ public class ValidAnagram242 {
     }
 }
 
+// Example 1:
 
+// Input: s = "anagram", t = "nagaram"
+
+// Output: true
 
 class Solution {
     public boolean isAnagram(String s, String t) {
-
         if(s.length() != t.length()) {
             return false;
         }
@@ -40,6 +43,7 @@ class Solution {
         // }
 
         // return true;
+
 
     // ======================================
     // Approach 2: Frequency Count (Optimized)
