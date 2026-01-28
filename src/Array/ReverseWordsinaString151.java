@@ -48,5 +48,29 @@ class Solution {
 
         // return String.join(" ", words);
 
-    
+    // ---------------------------------------------
+    // Approach 2: Build result from front
+    // Time: O(n)
+    // Space: O(1) (ignoring output string)
+
+        String ans = "";
+        String currStr = "";
+
+        for(char c : s.toCharArray()) {
+            if(c == ' ' && !currStr.equals("")) {
+                ans = currStr + " " + ans;
+                currStr = ""; 
+            } else if(c == ' ') {
+                continue;
+            } else {
+                currStr += c;
+            }
+        }
+
+        if(!currStr.equals("")) {
+            ans = currStr + " " + ans;
+        }
+
+        return ans.trim();
+    }
 }
