@@ -42,6 +42,24 @@ class Solution {
 
         // return false;
 
+        // ---------------------------------------------
+        // Approach 2: Brute Force using Frequency Check
+        // Time: O(n * k)
+        // Space: O(26)
+
+
+        // int n1 = s1.length();
+        // int n2 = s2.length();
+
+        // for(int i = 0; i <= n2 - n1; i++) {
+        //     String sub = s2.substring(i, i + n1);
+        //     if(isAnagram(sub, s1)) {
+        //         return true;
+        //     }
+        // }
+
+        // return false;
+
         
     }
 
