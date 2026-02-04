@@ -58,5 +58,45 @@ class Solution {
 
         // return res;
 
-        
+        // ---------------------------------------------
+        // Approach 2: Frequency Hashing (Optimal)
+        // Time: O(n * k)
+        // Space: O(n * k)
+
+        List<List<String>> res = new ArrayList<>();
+        int n = strs.length;
+
+        HashMap<String, List<String>> map = new HashMap<>();
+        for(int i = 0; i < n; i++) {
+            String hash = getHash(strs[i]);
+            if(!map.containsKey(hash)) {
+                map.put(hash, new ArrayList<>());
+            }
+            map.get(hash).add(strs[i]);
+        }
+
+        for(List<String> val : map.values()) {
+            res.add(val);
+        }
+
+        return res;
+    }
+
+    public static String getHash(String s) {
+        StringBuilder hash = new StringBuilder("");
+        int[] freq = new int[26];
+
+        for(char ch : s.toCharArray()) {
+            freq[ch - 'a']++;
+        }
+
+        for(int val : freq) {
+            if(val != 0) {
+                hash.append(val);
+            }
+            hash.append("#");
+        }
+
+        return hash.toString();
+    }
 }
