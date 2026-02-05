@@ -19,6 +19,29 @@ public class MinimumWindowSubstring76 {
 // Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t.
 
 class Solution {
+
+    public static boolean isSubString(String subStr, String t) {
+        int[] freq = new int[256];
+        
+        for(char ch : t.toCharArray()) {
+            freq[ch]++;
+        }
+
+        for(char ch : subStr.toCharArray()) {
+            if(freq[ch] > 0) {
+                freq[ch]--;
+            }
+        }
+
+        for(int val : freq) {
+            if(val > 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
     public String minWindow(String s, String t) {
 
         // ---------------------------------------------
@@ -87,27 +110,5 @@ class Solution {
         }
 
         return len == Integer.MAX_VALUE ? "" : s.substring(start, start + len);
-    }
-
-    public static boolean isSubString(String subStr, String t) {
-        int[] freq = new int[256];
-        
-        for(char ch : t.toCharArray()) {
-            freq[ch]++;
-        }
-
-        for(char ch : subStr.toCharArray()) {
-            if(freq[ch] > 0) {
-                freq[ch]--;
-            }
-        }
-
-        for(int val : freq) {
-            if(val > 0) {
-                return false;
-            }
-        }
-
-        return true;
     }
 }
