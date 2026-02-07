@@ -34,6 +34,27 @@ class Solution {
 
         // return idx;
 
-        
+        // ---------------------------------------------
+        // Approach 2: Binary Search
+        // Time: O(log n)
+        // Space: O(1)
+
+        int idx = -1;
+        int start = 0;
+        int end = arr.length;
+        while(start < end) {
+            int mid = (start + end) / 2;
+            if(arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1]) {
+                idx = mid;
+                return idx;
+            }
+            if(arr[mid - 1] > arr[mid]) {
+                end = mid;
+            } else {
+                start = mid;
+            }
+        }
+
+        return idx;
     }
 }
