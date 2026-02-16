@@ -44,6 +44,23 @@ class Solution {
         
     // }
 
+    public static void helper(int[] candidates, int target, int idx, List<List<Integer>> res, List<Integer> eles) {
+        if(target == 0) {
+            res.add(new ArrayList<>(eles));
+            return;
+        }
+
+        for(int i = idx; i < candidates.length; i++) {
+            if(candidates[i] > target) {
+                break;
+            }
+
+            eles.add(candidates[i]);
+            helper(candidates, target - candidates[i], i, res, eles);
+            eles.remove(eles.size() - 1);
+        }
+    }
+
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
 
         // ------------------------------------------------
