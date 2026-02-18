@@ -54,7 +54,32 @@ class Solution {
     //     helper(candidates, target, nextIdx, elems, res);
     // }
 
-    
+    // ---------------------------------------------
+    // Approach 2: Loop Based Backtracking (Optimized)
+    // Time: O(2^n)
+    // Space: O(n)
+
+    public static void helper(int[] candidates, int target, int idx, List<Integer> elems, List<List<Integer>> res) {
+
+        if(target == 0) {
+            res.add(new ArrayList<>(elems));
+            return;
+        }
+
+        for(int i = idx; i < candidates.length; i++) {
+            if(i > idx && candidates[i] == candidates[i - 1]) {
+                continue;
+            }
+
+            if(candidates[i] > target) {
+                break;
+            }
+
+            elems.add(candidates[i]);
+            helper(candidates, target - candidates[i], i + 1, elems, res);
+            elems.remove(elems.size() - 1);
+        }
+    }
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
