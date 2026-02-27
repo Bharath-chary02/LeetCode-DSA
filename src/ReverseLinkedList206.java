@@ -30,7 +30,17 @@ class ListNode {
 
 class Solution {
 
-    
+    public static ListNode reverse(ListNode temp) {
+        if(temp == null || temp.next == null) {
+            return temp;
+        }
+
+        ListNode rev = reverse(temp.next);
+        temp.next.next = temp;
+        temp.next = null;
+
+        return rev;
+    }
 
     public ListNode reverseList(ListNode head) {
 
@@ -54,6 +64,13 @@ class Solution {
 
         // return head;
 
-        
+        // ---------------------------------------------
+        // Approach 2: Recursive Reversal
+        // Time Complexity: O(n)
+        // Space Complexity: O(n)
+
+        ListNode temp = head;
+
+        return reverse(temp);
     }
 }
