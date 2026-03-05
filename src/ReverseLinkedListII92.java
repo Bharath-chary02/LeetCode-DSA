@@ -95,6 +95,34 @@ class Solution {
 
         // return head;
 
-        
+        // --------------------------------------------------
+        // Approach 2: Dummy Node + Head Insertion (Optimal)
+        // Time: O(N)
+        // Space: O(1)
+
+        ListNode dummy = new ListNode();
+        dummy.next = head;
+
+        ListNode prev = null;
+        ListNode curr = null;
+        ListNode next = null;
+        ListNode temp = dummy;
+        int l = left;
+
+        while(l-- > 1) {
+            temp = temp.next;
+        }
+
+        prev = temp;
+        curr = prev.next;
+        next = curr.next;
+        while(right-- > left) {
+            next = curr.next;
+            curr.next = next.next;
+            next.next = prev.next;
+            prev.next = next;
+        }
+
+        return dummy.next;
     }
 }
