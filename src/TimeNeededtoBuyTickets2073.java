@@ -47,6 +47,23 @@ class Solution {
 
         // return count;
 
-        
+        // ---------------------------------------------
+        // Approach 2: Mathematical Counting (Optimal)
+        // Time: O(n)
+        // Space: O(1)
+
+        int n = tickets.length;
+        int count = 0;
+        int target = tickets[k];
+
+        for(int i = 0; i < n; i++) {
+            if(i <= k) {
+                count += Math.min(tickets[i], target);
+            } else {
+                count += Math.min(tickets[i], target - 1);
+            }
+        }
+
+        return count;
     }
 }
